@@ -1,1 +1,19 @@
-
+{
+  "items": [
+    {"es":"¿Cuántos años tienes?","en":"How old are you?"},
+    {"es":"¿De dónde eres?","en":"Where are you from?"},
+    {"es":"aquí","en":"here"},
+    {"es":"de","en":"from"},
+    {"es":"edad","en":"age"},
+    {"es":"el país","en":"the country"},
+    {"es":"eres","en":"you are"},
+    {"es":"es","en":"is"},
+    {"es":"la capital","en":"the capital"},
+    {"es":"me llamo","en":"my name is"},
+    {"es":"soy","en":"I am"},
+    {"es":"tengo","en":"I have"},
+    {"es":"tienes","en":"you have"},
+    {"es":"tú","en":"you"},
+    {"es":"yo","en":"I"}
+  ]
+}
