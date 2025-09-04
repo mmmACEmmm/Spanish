@@ -1,1 +1,5 @@
-
+[
+  { "key": "u1a1",    "title": "U1A1",    "desc": "20 terms", "file": "data/u1a1.json" },
+  { "key": "numbers", "title": "Numbers", "desc": "0–20",     "file": "data/numbers.json", "math": true },
+  { "key": "u1a2",    "title": "U1A2",    "desc": "15 terms", "file": "data/u1a2.json" }
+]
