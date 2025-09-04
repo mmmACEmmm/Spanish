@@ -1,1 +1,24 @@
-
+{
+  "items": [
+    {"es":"el acento","en":"accent"},
+    {"es":"Adiós","en":"Good-bye"},
+    {"es":"el alfabeto","en":"alphabet"},
+    {"es":"¿cómo?","en":"how?"},
+    {"es":"¿Cómo te llamas?","en":"What is your name?"},
+    {"es":"con","en":"with"},
+    {"es":"Hasta luego","en":"See you later"},
+    {"es":"Hola","en":"Hello"},
+    {"es":"luego","en":"later"},
+    {"es":"la mayúscula","en":"capital (uppercase) letter"},
+    {"es":"me llamo","en":"my name is"},
+    {"es":"la minúscula","en":"lowercase letter"},
+    {"es":"la muchacha","en":"girl, young woman"},
+    {"es":"el muchacho","en":"boy, young man"},
+    {"es":"Mucho gusto.","en":"Glad (Nice) to meet you."},
+    {"es":"se escribe","en":"it is written"},
+    {"es":"sí","en":"yes"},
+    {"es":"te llamas","en":"your name is"},
+    {"es":"yo","en":"I"},
+    {"es":"y","en":"and"}
+  ]
+}
