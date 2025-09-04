@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mono">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spanish Drill</title>
+  <link rel="preload" href="assets/css/styles.css" as="style">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="container row">
+      <div class="brand">Spanish Drill</div>
+      <div class="row">
+        <div class="pill">Theme:
+          <select id="themeSel">
+            <option value="mono">Monochrome</option>
+            <option value="color">Color</option>
+          </select>
+        </div>
+        <button class="btn" id="resetPrefs">Reset</button>
+      </div>
+    </div>
+  </div>
 
+  <div class="container">
+    <!-- HOME -->
+    <section id="homeView" class="view active">
+      <div id="setGrid" class="grid"></div>
+    </section>
+
+    <!-- ACTIVITY -->
+    <section id="activityView" class="view">
+      <div class="card pad">
+        <div class="controls">
+          <button class="btn" id="backHome">← Back</button>
+          <span class="tag" id="setTag">Set</span>
+        </div>
+        <div class="grid">
+          <div class="card pad tile">
+            <div><h2>Study</h2><p class="muted">Browse the list, hear audio, hide columns.</p></div>
+            <div><button class="btn" id="goStudy">Open Study</button></div>
+          </div>
+          <div class="card pad tile">
+            <div><h2>Drill</h2><p class="muted">Spell answers. Numbers adds Math.</p></div>
+            <div><button class="btn primary" id="goDrill">Start Drill</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDY -->
+    <section id="studyView" class="view">
+      <div class="card pad">
+        <div class="controls">
+          <button class="btn" id="backActivity1">← Back</button>
+          <span class="tag" id="studySetTag">Set</span>
+          <div class="pill">Hide: <label><input type="checkbox" id="hideEs"> Spanish</label> <label><input type="checkbox" id="hideEn"> English</label></div>
+          <div class="pill">Filter: <input id="filterBox" placeholder="type to filter…"></div>
+          <button class="btn" id="studyToDrill">Start Drill</button>
+        </div>
+        <div class="card pad tablewrap" style="padding:0">
+          <table id="studyTable">
+            <thead><tr><th style="width:50%">Spanish</th><th style="width:46%">English</th><th style="width:4%"></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRILL -->
+    <section id="drillView" class="view">
+      <div class="controls">
+        <button class="btn" id="backActivity2">← Back</button>
+        <span class="tag" id="drillSetTag">Set</span>
+        <div class="pill">Direction:
+          <label><input type="radio" name="mode" value="en2es" checked> EN→ES</label>
+          <label><input type="radio" name="mode" value="es2en"> ES→EN</label>
+          <label id="mathLabel" class="hidden"><input type="radio" name="mode" value="math"> Math</label>
+        </div>
+        <div class="pill">Strict accents <input id="strict" type="checkbox"></div>
+        <div class="pill">Shuffle <input id="shuffle" type="checkbox" checked></div>
+        <button class="btn" id="tourBtn">? Tour</button>
+        <button class="btn" id="panelBtn" aria-expanded="false">☰ Study Panel</button>
+      </div>
+
+      <div id="mathOps" class="card pad hidden" style="margin-bottom:10px">
+        <div class="pill">Operations:
+          <label><input type="checkbox" id="opAdd" checked> +</label>
+          <label><input type="checkbox" id="opSub" checked> −</label>
+          <label><input type="checkbox" id="opDiv" checked> ÷</label>
+        </div>
+        <div class="pill">Questions: <input id="qCount" type="number" min="5" max="40" value="20" style="width:72px"></div>
+        <span class="muted">Operands/results ≤ 20; answers from your list.</span>
+      </div>
+
+      <div class="split" id="split">
+        <div class="card pad" id="mainCard">
+          <h2 id="title" style="margin:0 0 6px">Type the Spanish term for:</h2>
+          <div id="prompt">—</div>
+          <input id="answer" type="text" placeholder="Type, then Enter" autocomplete="off" />
+          <div class="accentbar">
+            <button class="btn" data-ins="á">á</button><button class="btn" data-ins="é">é</button>
+            <button class="btn" data-ins="í">í</button><button class="btn" data-ins="ó">ó</button>
+            <button class="btn" data-ins="ú">ú</button><button class="btn" data-ins="ñ">ñ</button>
+            <button class="btn" data-ins="¡">¡</button><button class="btn" data-ins="¿">¿</button>
+          </div>
+          <div class="controls" style="margin-top:6px">
+            <button class="btn" id="audioBtn">🔊 Audio</button>
+            <button class="btn primary" id="checkBtn">Check</button>
+            <button class="btn" id="hintBtn">Hint</button>
+            <button class="btn" id="skipBtn">Skip</button>
+            <span class="tag" id="scoreTag">0 / 0</span>
+            <span class="tag" id="streakTag">streak 0</span>
+            <span class="tag" id="remainTag">— left</span>
+          </div>
+          <div id="feedback" class="muted"></div>
+          <progress id="prog" value="0" max="20"></progress>
+        </div>
+
+        <aside id="studyPanel" class="card pad hidden" aria-hidden="true">
+          <div class="controls" style="justify-content:space-between;margin-bottom:6px">
+            <div class="muted">Word list</div>
+            <div class="pill">Hide: <label><input type="checkbox" id="pHideEs"> ES</label> <label><input type="checkbox" id="pHideEn"> EN</label></div>
+          </div>
+          <div class="pill" style="margin-bottom:6px">Filter: <input id="panelFilter" placeholder="filter…" style="flex:1"></div>
+          <div class="card pad tablewrap" style="padding:0;max-height:60vh">
+            <table class="table" id="panelTable">
+              <thead><tr><th style="width:50%">Spanish</th><th style="width:46%">English</th><th style="width:4%"></th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </aside>
+      </div>
+
+      <div id="finish" class="card pad" style="margin-top:12px;display:none">
+        <h2>Round complete</h2>
+        <div id="summary" class="muted"></div>
+        <div class="controls" style="margin-top:6px">
+          <button class="btn" id="restartBtn">Restart</button>
+          <button class="btn" id="retryWrongBtn" style="display:none">Retry Missed Only</button>
+          <button class="btn" id="copyMissedBtn">Copy Missed</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TOUR -->
+  <div id="tour" class="hidden">
+    <div class="modal">
+      <div class="muted" style="margin-bottom:8px"><b>Shortcuts</b>: Enter=Check, Shift+Enter=Hint, Alt+A=Audio, Alt+S=Skip, Esc=Toggle panel.</div>
+      <div class="controls" style="justify-content:flex-end"><button class="btn" id="closeTour">Close</button></div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
