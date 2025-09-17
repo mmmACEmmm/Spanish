@@ -1,18 +1,19 @@
 {
   "items": [
-  {"es":"¿Qué tal?","en":"How are you?"},
-  {"es":"regular","en":"so-so, regular"},
-  {"es":"mal","en":"badly"},
-  {"es":"bien","en":"well"},
-  {"es":"buenos días","en":"good morning"},
-  {"es":"buenas tardes","en":"good afternoon"},
-  {"es":"buenas noches","en":"good night"},
-  {"es":"él","en":"he"},
-  {"es":"ella","en":"she"},
-  {"es":"tú","en":"you"},
-  {"es":"nosotros","en":"we"},
-  {"es":"señorita (Srta.)","en":"Miss"},
-  {"es":"señora (Sra.)","en":"Mrs."},
-  {"es":"señor (Sr.)","en":"Mr."},
-  {"es":"¿Por qué?","en":"Why?"}
-]
+   {"es":"¿Qué tal?","en":"How are you?"},
+   {"es":"regular","en":"so-so, regular"},
+   {"es":"mal","en":"badly"},
+   {"es":"bien","en":"well"},
+   {"es":"buenos días","en":"good morning"},
+   {"es":"buenas tardes","en":"good afternoon"},
+   {"es":"buenas noches","en":"good night"},
+   {"es":"él","en":"he"},
+   {"es":"ella","en":"she"},
+   {"es":"tú","en":"you"},
+   {"es":"nosotros","en":"we"},
+   {"es":"señorita (Srta.)","en":"Miss"},
+   {"es":"señora (Sra.)","en":"Mrs."},
+   {"es":"señor (Sr.)","en":"Mr."},
+   {"es":"¿Por qué?","en":"Why?"}
+ ]
+}
